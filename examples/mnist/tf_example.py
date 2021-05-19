@@ -28,6 +28,9 @@ from examples.mnist import DEFAULT_MNIST_DATA_PATH
 from petastorm import make_reader
 from petastorm.tf_utils import tf_tensors
 
+# Indispensable to solving error: "Input pipelines based on Queues are not supported when eager execution"
+tf.disable_eager_execution()
+
 
 def train_and_test(dataset_url, training_iterations, batch_size, evaluation_interval):
     """
